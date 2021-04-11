@@ -1,24 +1,29 @@
-def sol(n):
-    if n == 1:
-        return False
+def primeNum(n):
+    arr = [2] + list(range(3, n + 1, 2))
 
-    for i in range(2, n):
-        if n % i == 0:
-            return False
+    i = 1
+    while i < len(arr):
+        j = i + 1
+        while j < len(arr):
+            if arr[j] % arr[i] == 0:
+                arr.pop(j)
+            else:
+                j += 1
+        i += 1
 
-    return True
+    return arr
 
 
 m = int(input())
 n = int(input())
 data = []
 
-for i in range(m, n + 1):
-    if sol(i):
+for i in primeNum(n):
+    if m <= i <= n:
         data.append(i)
 
 if len(data) == 0:
     print(-1)
 else:
     print(sum(data))
-    print(sorted(data)[0])
+    print(data[0])
