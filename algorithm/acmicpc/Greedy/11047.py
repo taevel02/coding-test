@@ -5,13 +5,12 @@ for _ in range(n):
     data.append(int(input()))
 data.sort(reverse=True)
 
-i = 0
 count = 0
-while k != 0:
-    if k >= data[i]:
-        k -= data[i]
-        count += 1
-    else:
-        i += 1
+for i in range(n):
+    if k == 0:
+        break
+    if data[i] <= k:
+        count += k // data[i]
+        k %= data[i]
 
 print(count)
