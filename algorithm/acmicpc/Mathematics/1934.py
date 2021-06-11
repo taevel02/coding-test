@@ -1,9 +1,9 @@
-def gcp(n, m):
+def gcd(n, m):
     if m:
-        return gcp(m, n % m)
+        return gcd(m, n % m)
     return n
 
 
 for _ in range(int(input())):
     n, m = map(int, input().split())
-    print(int((n * m) // gcp(n, m)))
+    print(int((n * m) // gcd(n, m)))
